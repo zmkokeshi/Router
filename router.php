@@ -1,17 +1,4 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: mzk
- * Date: 16/01/12
- * Time: 21:16
- */
 
-$test="phpだよ";
-
-echo $test;
-
-
-?>
 
 <?php
 /* ファイルポインタをオープン */
@@ -21,27 +8,22 @@ $file = fopen("test.txt", "r");
 if($file){
     while ($line = fgets($file)) {
 
+//        インターフェース名、説明、VIDの項目だけを抽出
         if ('' == strstr($line,'interface GigabitEthernet') && '' == strstr($line,'discription') && '' == strstr($line,'VLAN')){
-
 
         }
         else{
-
             echo $line;
+            $config .= $line;
+//            var_dump($config);
         }
-
-
-
-
-
-
-
-
-//        echo $line;
-
     }
+    file_put_contents("sample.txt", $config);
 }
 
 /* ファイルポインタをクローズ */
 fclose($file);
 ?>
+
+
+

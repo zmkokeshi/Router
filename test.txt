@@ -93,10 +93,9 @@ interface GigabitEthernet1/0.0
   ip napt enable
   no shutdown
 !
-interface FastEthernet0/1.1
-  encapsulation pppoe
-  auto-connect
-  no ip address
+interface GigabitEthernet1/1.0
+  discription ###test###
+  VLAN 32
   ip dhcp binding star
   no shutdown
 !

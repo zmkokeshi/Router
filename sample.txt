@@ -1,0 +1,6 @@
+interface GigabitEthernet1/0.0
+  discription ###test###
+  VLAN 31
+interface GigabitEthernet1/1.0
+  discription ###test###
+  VLAN 32
