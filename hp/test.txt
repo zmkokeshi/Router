@@ -1,0 +1,259 @@
+zmkokeshi(config)# sh run
+Current configuration : 1815 bytes
+
+! NEC Portable Internetwork Core Operating System Software
+! IX Series IX2010 (magellan-sec) Software, Version 8.3.48, RELEASE SOFTWARE
+! Compiled May 10-Tue-2011 15:33:32 JST #1
+! Current time Jan 10-Sun-2016 23:48:43 JST
+!
+!
+hostname zmkokeshi
+timezone +09 00
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+ip ufs-cache enable
+ip route default FastEthernet0/0.0
+ip route default FastEthernet0/0.1
+ip dhcp enable
+ip access-list admin_console permit ip src any dest 192.168.25.0/24
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+http-server username admin
+http-server ip access-list admin-console
+http-server ip enable
+!
+!
+!
+!
+!
+!
+!
+!
+ppp profile kokeshi
+  authentication myname b201512f0043378@sbb.ne.jp
+  authentication password b201512f0043378@sbb.ne.jp ca4sctev
+!
+ip dhcp profile star
+  assignable-range 192.168.25.1 192.168.25.100
+  default-gateway 192.168.25.254
+  dns-server 218.176.253.97 218.176.253.65
+!
+device FastEthernet0/0
+!
+device FastEthernet0/1
+!
+device FastEthernet1/0
+!
+device BRI1/0
+  isdn switch-type hsd128k
+!
+interface FastEthernet0/0.0
+  no ip address
+  shutdown
+!
+interface FastEthernet0/1.0
+  no ip address
+  shutdown
+!
+interface FastEthernet1/0.0
+  ip address 192.168.25.254/24
+  ip dhcp binding star
+  no shutdown
+!
+interface BRI1/0.0
+  encapsulation ppp
+  no auto-connect
+  no ip address
+  shutdown
+
+  
+!
+interface GigabitEthernet1/0.0
+  discription ###test###
+  VLAN 31
+  encapsulation pppoe
+  auto-connect
+  ppp binding kokeshi
+  ip address ipcp
+  ip napt enable
+  no shutdown
+!
+interface GigabitEthernet1/1.0
+  discription ###test###
+  VLAN 32
+  ip dhcp binding star
+  no shutdown
+!
+interface FastEthernet1/0.1
+  encapsulation pppoe
+  auto-connect
+  no ip address
+  shutdown
+!
+interface Loopback0.0
+  no ip address
+!
+interface Null0.0
+  no ip address
+zmkokeshi(config)#
+zmkokeshi(config)#
+  auto-connect
+  ppp binding kokeshi
+  ip address ipcp
+  ip napt enable
+  no shutdown
+!
+interface FastEthernet0/1.1
+  encapsulation pppoe
+  auto-connect
+  no ip address
+  ip dhcp binding star
+  no shutdown
+!
+interface FastEthernet1/0.1
+  encapsulation pppoe
+  auto-connect
+  no ip address
+  shutdown
+!
+interface Loopback0.0
+  no ip address
+!
+interface Null0.0
+  no ip address
+zmkokeshi(config)#
+zmkokeshi(config)#
+interface BRI1/0.0
+  encapsulation ppp
+  no auto-connect
+  no ip address
+  shutdown
+!
+interface FastEthernet0/0.1
+  encapsulation pppoe
+  auto-connect
+  ppp binding kokeshi
+  ip address ipcp
+  ip napt enable
+  no shutdown
+!
+interface FastEthernet0/1.1
+  encapsulation pppoe
+  auto-connect
+  no ip address
+  ip dhcp binding star
+  no shutdown
+!
+interface FastEthernet1/0.1
+  encapsulation pppoe
+  auto-connect
+  no ip address
+  shutdown
+!
+interface Loopback0.0
+  no ip address
+!
+interface Null0.0
+  no ip address
+zmkokeshi(config)#
+zmkokeshi(config)#
+  shutdown
+!
+interface FastEthernet1/0.0
+  ip address 192.168.25.254/24
+  ip dhcp binding star
+  no shutdown
+!
+interface BRI1/0.0
+  encapsulation ppp
+  no auto-connect
+  no ip address
+  shutdown
+!
+interface FastEthernet0/0.1
+  encapsulation pppoe
+  auto-connect
+  ppp binding kokeshi
+  ip address ipcp
+  ip napt enable
+  no shutdown
+!
+interface FastEthernet0/1.1
+  encapsulation pppoe
+  auto-connect
+  no ip address
+  ip dhcp binding star
+  no shutdown
+!
+interface FastEthernet1/0.1
+  encapsulation pppoe
+  auto-connect
+  no ip address
+  shutdown
+!
+interface Loopback0.0
+  no ip address
+!
+interface Null0.0
+  no ip address
+zmkokeshi(config)#
+zmkokeshi(config)#
+!
+interface FastEthernet0/1.0
+  no ip address
+  shutdown
+!
+interface FastEthernet1/0.0
+  ip address 192.168.25.254/24
+  ip dhcp binding star
+  no shutdown
+!
+interface BRI1/0.0
+  encapsulation ppp
+  no auto-connect
+  no ip address
+  shutdown
+!
+interface FastEthernet0/0.1
+  encapsulation pppoe
+  auto-connect
+  ppp binding kokeshi
+  ip address ipcp
+  ip napt enable
+  no shutdown
+!
+interface FastEthernet0/1.1
+  encapsulation pppoe
+  auto-connect
+  no ip address
+  ip dhcp binding star
+  no shutdown
+!
+interface FastEthernet1/0.1
+  encapsulation pppoe
+  auto-connect
+  no ip address
+  shutdown
+!
+interface Loopback0.0
+  no ip address
+!
+interface Null0.0
+  no ip address

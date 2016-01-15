@@ -82,6 +82,8 @@ interface BRI1/0.0
   no auto-connect
   no ip address
   shutdown
+
+  
 !
 interface GigabitEthernet1/0.0
   discription ###test###
